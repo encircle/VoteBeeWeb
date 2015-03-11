@@ -24,6 +24,51 @@ $(document).ready(function(e) {
 	});
 	
 	/***************
+	* FORM SUBMIT TO GOOGLE
+	*****************/
+
+	/* Attach a submit handler to the form */
+	$("#feedbackForm").submit(function(event) {
+
+	    /* Stop form from submitting normally */
+	    event.preventDefault();
+
+	    /* Clear result div*/
+	   // $("#result").html('');
+
+	    // pop the URL params into the hidden device fields
+	    $('#DeviceMake').val(urlParams["devicePlatform"]);
+	    $('#DeviceModel').val(urlParams["deviceModel"]);
+	    
+		/* Get some values from elements on the page: */
+	    var values = $(this).serialize();
+	    
+		if (validate(this)) { 
+			/* Send the data using post and put the results in a div */
+			$.ajax({
+		        url: "https://script.google.com/macros/s/AKfycbysi8dqjfZ-qofy6xbysnQNY-JSTR7SyqK9Sai3IesfDC7S_w/exec",
+		        type: "post",
+		        data: values, 
+		        success: function(){
+		            document.getElementById('form-message').style.display="";
+		            document.getElementById('form-message').innerHTML='Submitted successfully. Thanks for your feedback!';
+		            document.getElementById('feedbackForm').style.display="none";
+		            if(parseInt(document.getElementById('AppRating').value) > 3) {
+		            	document.getElementById('form-rateapp').style.display="";
+		            }
+		        },  
+		        error:function(){
+		            $("#form-message").style.display="";
+		            $("#form-message").html('Sorry, something has gone wrong. Please email support@votebee.social');
+		            $("#feedbackForm").style.display="none";
+		        }
+		    });
+		} else return false;
+	    
+	    
+	});
+
+	/***************
 	* = Hover text *
 	* Hover text for the last slide
 	***************/
@@ -361,3 +406,21 @@ jQuery(document).ready(function ($) {
 		}
 	});
 });
+
+function custommsg() {
+	document.getElementById('form-message').style.display=""; 
+	document.getElementById('form-message').innerHTML="Thanks for your feedback!"; 
+	document.getElementById('feedbackForm').style.display="none";
+} 
+function validate(f){
+	if(document.getElementById('EmailAddress').value == '') { 
+		alert("Please enter your email address"); 
+		return false;
+	}
+	/*var year =parseInt(f.elements[0].value);
+	if (isNaN(year)|| year<1996 || year > (new Date()).getFullYear()){
+		alert("Invalid year");
+		return false; 
+	} */
+	return true; 
+} 

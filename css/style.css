@@ -7,7 +7,6 @@
  * URL: http://blacktie.co
  */
 
-
 .font-thin {
 	font-family: "Titillium Web", sans-serif;
 	font-weight: 200;
@@ -391,6 +390,7 @@ body {
 
 #slide-3 {
 	background-color: #000;
+	color: #A8A8A8;
 	overflow: hidden;
 	padding-top: 90px;
 	
@@ -456,6 +456,18 @@ body {
 	background-color: #f39c12;
 	color: #e4e6e5;
 	padding-top: 90px;
+}
+
+#slide-5 .hover-text-fade {
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation-fill-mode: forwards;  
+  animation-fill-mode: forwards; 
+  -webkit-transform: scale(1, 0);
+  display: block;
+  
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
 }
 
 #slide-6 {
