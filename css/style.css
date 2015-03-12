@@ -450,6 +450,11 @@ body {
 		font-size: 80px;
 		color: white;
 	}
+
+#slide-4 a {
+	font-weight: bold;
+		color: white;
+	}
 	
 @media (max-width: 767px) {
 	#slide-4 .col-6 {
@@ -506,14 +511,12 @@ body {
 	}
 }
 	
-	#contact-row-4 {
-		padding-top: 50px;
-	}
+	
 	
 	#contact-row-4 .col-12 {
 		height: 175px;
 		overflow: hidden;
-		padding-top: 20px;
+		padding-top: 10px;
 		transition: all ease-in .5s;
 	}
 	
