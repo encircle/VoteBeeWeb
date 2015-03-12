@@ -1,5 +1,6 @@
 
 $(document).ready(function(e) {
+
  	// cache the window object
     $window = $(window);
 	$('section[data-type="background"]').each(function(){
@@ -32,7 +33,10 @@ $(document).ready(function(e) {
 
 	    /* Stop form from submitting normally */
 	    event.preventDefault();
+	    // Disable the button and show the loading icon
 
+	    $('#submitbutton').hide();
+	    $('#loading').show();
 	    /* Clear result div*/
 	   // $("#result").html('');
 
@@ -50,6 +54,7 @@ $(document).ready(function(e) {
 		        type: "post",
 		        data: values, 
 		        success: function(){
+		        	$('#loading').hide();
 		            document.getElementById('form-message').style.display="";
 		            document.getElementById('form-message').innerHTML='Submitted successfully. Thanks for your feedback!';
 		            document.getElementById('feedbackForm').style.display="none";
@@ -58,12 +63,17 @@ $(document).ready(function(e) {
 		            }
 		        },  
 		        error:function(){
+		        	$('#loading').hide();
 		            $("#form-message").style.display="";
 		            $("#form-message").html('Sorry, something has gone wrong. Please email support@votebee.social');
 		            $("#feedbackForm").style.display="none";
 		        }
 		    });
-		} else return false;
+		} else { 
+			$('#submitbutton').show();
+	    	$('#loading').hide();
+	    	return false;
+	    }
 	    
 	    
 	});
