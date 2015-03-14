@@ -34,6 +34,11 @@
 </head>
 
 <body>
+<ul class="social">
+  <li><a target="_blank" href="https://twitter.com/share?url=http://votebee.social" class="tw" alt="Tweet this page!"><i class="icon-twitter"></i></a></li>
+	<li><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://votebee.social&amp;t=VoteBee" class="fb" alt="Share this page!"><i class="icon-facebook"></i></a></li>
+	<li><a target="_blank" href="http://plus.google.com/share?url=http://votebee.social" class="gp" alt="Share this page!"><i class="icon-google-plus"></i></a></li>
+</ul>
 	<div class="navbar navbar-fixed-top" data-activeslide="1">
 		<div class="container">
 		
@@ -53,6 +58,7 @@
 					<li data-slide="5" class="col-12 col-sm-2"><a id="menu-link-5" href="#slide-5" title="Next Section"><span class="icon icon-briefcase"></span> <span class="text">DOWNLOAD</span></a></li>
 					<li data-slide="4" class="col-12 col-sm-2"><a id="menu-link-4" href="#slide-4" title="Next Section"><span class="icon icon-envelope"></span> <span class="text">FEEDBACK</span></a></li>
 				</ul>
+
 				<div class="row">
 					<div class="col-sm-2 active-menu"></div>
 				</div>
@@ -290,7 +296,9 @@
 	<!-- fancybox init -->
 	<script>
 	$(document).ready(function(e) {
-
+  		
+  		$('.social a').tooltip({placement: "right", container: 'body'});
+		
 		var lis = $('.nav > li');
 		menu_focus( lis[0], 1 );
 		
