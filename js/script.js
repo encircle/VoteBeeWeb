@@ -85,9 +85,11 @@ $(document).ready(function(e) {
 	$('a').on('click', function(e) {
 		var link = $(e.target).closest("a");
     	var href = link[0].href;
+    	alert(href);
     	if (link.length != 1 || baseURI == link[0].host) return;
 	  ga('send', 'event', 'link', 'click', href);
 	});
+	
 	$('#submitbutton').on('click', function() {
   		ga('send', 'event', 'button', 'click', 'feedbackForm');
 	});

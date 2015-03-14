@@ -656,6 +656,33 @@ margin:20px;
 z-index: 1040;
 }
 
+@media (max-width: 767px) {
+	li {
+		display: inline-block;
+	}
+	.social {
+		display: absolute;
+		padding: 0px;
+		margin: 0px;
+		top:0px;
+		left:0px;
+		width:120px;
+		height: 50px;
+
+	}
+	.social li a {
+		display: inline;
+		background: #999999;
+		color: #efefef;
+		border-radius: 15px;
+		text-decoration: none;
+		line-height: 30px;
+		width: 30px;  
+		font-size: 18px;
+		
+	}
+}
+
 .social li:first-child {
 margin-top:0;
 }
