@@ -1,6 +1,6 @@
 
 $(document).ready(function(e) {
-
+	var baseURI = window.location.host;
  	// cache the window object
     $window = $(window);
 	$('section[data-type="background"]').each(function(){
@@ -78,6 +78,19 @@ $(document).ready(function(e) {
 	    
 	});
 
+	/****************
+	* Google Analytics Events
+	*
+	****************/
+	$('a').on('click', function(e) {
+		var link = $(e.target).closest("a");
+    	var href = link[0].href;
+    	if (link.length != 1 || baseURI == link[0].host) return;
+	  ga('send', 'event', 'link', 'click', href);
+	});
+	$('#submitbutton').on('click', function() {
+  		ga('send', 'event', 'button', 'click', 'feedbackForm');
+	});
 	/***************
 	* = Hover text *
 	* Hover text for the last slide
