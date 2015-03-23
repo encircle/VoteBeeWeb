@@ -1,4 +1,3 @@
-
 $(document).ready(function(e) {
 	var baseURI = window.location.host;
  	// cache the window object
